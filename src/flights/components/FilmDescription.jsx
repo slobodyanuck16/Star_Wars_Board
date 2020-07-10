@@ -9,7 +9,8 @@ import Vehicles from "./Vehicles";
 const FilmDescription = ({ film }) => {
     console.log(film);
 
-    const { direction } = useParams();
+    const { episodeId } = useParams();
+    console.log(episodeId);
 
     let episodeNumber;
     film.map((filmInfo) => {
@@ -56,50 +57,50 @@ const FilmDescription = ({ film }) => {
                         <div className="film-description__buttons-container">
                             <Link
                                 className="film-description__buttons-container_button"
-                                to={`${direction}/characters`}
+                                to={`/${episodeId}/characters`}
                             >
                                 characters
                             </Link>
                             <Link
                                 className="film-description__buttons-container_button"
-                                to={`${direction}/planets`}
+                                to={`/${episodeId}/planets`}
                             >
                                 planets
                             </Link>
                             <Link
                                 className="film-description__buttons-container_button"
-                                to={`${direction}/species`}
+                                to={`/${episodeId}/species`}
                             >
                                 species
                             </Link>
                             <Link
                                 className="film-description__buttons-container_button"
-                                to={`${direction}/starships`}
+                                to={`/${episodeId}/starships`}
                             >
                                 starships
                             </Link>
                             <Link
                                 className="film-description__buttons-container_button"
-                                to={`${direction}/vehicles`}
+                                to={`/${episodeId}/vehicles`}
                             >
                                 vehicles
                             </Link>
                         </div>
 
                         <Switch>
-                            <Route path={`${direction}/characters`}>
+                            <Route path={`/:episodeId/characters`}>
                                 <Characters characters={filmInfo.characters} />
                             </Route>
-                            <Route path={`${direction}/planets`}>
+                            <Route path={`/:episodeId/planets`}>
                                 <Planets planets={filmInfo.planets} />
                             </Route>
-                            <Route path={`${direction}/species`}>
+                            <Route path={`/:episodeId/species`}>
                                 <Species species={filmInfo.species} />
                             </Route>
-                            <Route path={`${direction}/starships`}>
+                            <Route path={`/:episodeId/starships`}>
                                 <Starships starships={filmInfo.starships} />
                             </Route>
-                            <Route path={`${direction}/vehicles`}>
+                            <Route path={`/:episodeId/vehicles`}>
                                 <Vehicles vehicles={filmInfo.vehicles} />
                             </Route>
                         </Switch>

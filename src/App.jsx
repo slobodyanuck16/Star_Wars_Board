@@ -1,5 +1,5 @@
 import React from "react";
-import SearchFlightInput from "./flights/components/Search";
+import Search from "./flights/components/Search";
 import FilmsBoard from "./flights/components/FilmsBoard";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -20,17 +20,15 @@ function App() {
 
     return (
         <>
-            {films === undefined ? (
-                ""
-            ) : (
+            {films && (
                 <>
                     <div className="search-film-container">
                         <i className="swg swg-darthvader"></i>
                         <h1 className="title">Star Wars: The Complete Saga</h1>
-                        <SearchFlightInput setText={handleText} />
+                        <Search setText={handleText} />
                     </div>
                     {/* <Switch> */}
-                        <Route exact path="/:direction">
+                        <Route exact path="/:episodeId">
                             <FilmsBoard text={text} films={films} />
                         </Route>
                         <Redirect to="/home" />

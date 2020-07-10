@@ -5,14 +5,16 @@ import { filmsObj } from "./another";
 import FilmDescription from "./FilmDescription";
 
 function FilmsBoard({ text, films }) {
-    const { direction } = useParams();
+    const { episodeId } = useParams();
 
     console.log(films);
 
     const checkedFilm =
-        direction === "home"
+        episodeId === "home"
             ? []
-            : films.filter((fil) => fil.episode_id + "" === direction.substr(8));
+            : films.filter(
+                  (fil) => fil.episode_id + "" === episodeId.substr(8)
+              );
 
     const filteredfilms =
         text === undefined
@@ -22,7 +24,7 @@ function FilmsBoard({ text, films }) {
               );
 
     console.log(checkedFilm);
-    
+
     return (
         <>
             <div className="films-list-container">
@@ -42,13 +44,9 @@ function FilmsBoard({ text, films }) {
                     );
                 })}
             </div>
-            {direction === "home" ? (
-                ""
-            ) : (
-                <div className="film-card-container">
-                    <FilmDescription film={checkedFilm} />
-                </div>
-            )}
+            <div className="film-card-container">
+                <FilmDescription film={checkedFilm} />
+            </div>
         </>
     );
 }
