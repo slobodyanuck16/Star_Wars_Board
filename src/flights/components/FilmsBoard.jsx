@@ -4,31 +4,25 @@ import { filmsObj } from "./another";
 
 import FilmDescription from "./FilmDescription";
 
-function FilmsBoard({ text }) {
+function FilmsBoard({ text, films }) {
     const { direction } = useParams();
 
-    const [films, setFilms] = useState([]);
+    console.log(films);
 
     const checkedFilm =
-        films === undefined
+        direction === "home"
             ? []
-            : films.filter(
-                  (film) => film.episode_id + "" === direction.substr(8)
-              );
-
-    useEffect(() => {
-        filmsObj.then((value) => setFilms(value));
-    }, []);
-
-    // filmsObj.then((value) => setFilms(value));
+            : films.filter((fil) => fil.episode_id + "" === direction.substr(8));
 
     const filteredfilms =
-        text === ''
+        text === undefined
             ? films
             : films.filter((film) =>
                   film.title.toLowerCase().includes(text.toLowerCase())
               );
 
+    console.log(checkedFilm);
+    
     return (
         <>
             <div className="films-list-container">
@@ -44,14 +38,17 @@ function FilmsBoard({ text }) {
                                 src={`../img/${film.episode_id}.jpg`}
                                 alt="poster"
                             />
-                            {/* <button className="some">{film.title}</button> */}
                         </Link>
                     );
                 })}
             </div>
-            <div className="film-card-container">
-                <FilmDescription film={checkedFilm} />
-            </div>
+            {direction === "home" ? (
+                ""
+            ) : (
+                <div className="film-card-container">
+                    <FilmDescription film={checkedFilm} />
+                </div>
+            )}
         </>
     );
 }

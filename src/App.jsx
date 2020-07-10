@@ -3,36 +3,40 @@ import SearchFlightInput from "./flights/components/Search";
 import FilmsBoard from "./flights/components/FilmsBoard";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { filmsObj } from "./flights/components/another";
 
 function App() {
-
-    // const [film, setFilm] = useState();
+    const [films, setFilms] = useState();
     const [text, setText] = useState();
 
-    // useEffect(() => {
-    //     fetch("http://swapi.dev/api/films/")
-    //         .then((response) => response.json())
-    //         .then((data) => setFilm(data.results));
-    // }, []);
+    useEffect(() => {
+        filmsObj.then((value) => setFilms(value));
+    }, []);
 
     const handleText = (e) => {
-        const {value} = e.target;
-        setText(value)
-    }
+        const { value } = e.target;
+        setText(value);
+    };
 
     return (
         <>
-            <div className="search-film-container">
-            <i className="swg swg-darthvader"></i>
-                <h1 className="title">Star Wars: The Complete Saga</h1>
-                <SearchFlightInput setText={handleText} />
-            </div>
-            <Switch>
-                <Route exact path="/:direction">
-                    <FilmsBoard text={text} />
-                </Route>
-                {/* <Redirect to="/home" /> */}
-            </Switch>
+            {films === undefined ? (
+                ""
+            ) : (
+                <>
+                    <div className="search-film-container">
+                        <i className="swg swg-darthvader"></i>
+                        <h1 className="title">Star Wars: The Complete Saga</h1>
+                        <SearchFlightInput setText={handleText} />
+                    </div>
+                    {/* <Switch> */}
+                        <Route exact path="/:direction">
+                            <FilmsBoard text={text} films={films} />
+                        </Route>
+                        <Redirect to="/home" />
+                    {/* </Switch> */}
+                </>
+            )}
         </>
     );
 }

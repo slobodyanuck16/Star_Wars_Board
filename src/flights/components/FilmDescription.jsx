@@ -15,18 +15,16 @@ const FilmDescription = ({ film }) => {
 
     return (
         <>
-            {film === undefined
-                ? ""
-                : film.map((film) => {
+            {film.map((filmInfo) => {
                       return (
-                          <div key={film.episode_id}>
-                              <div>{film.title}</div>
-                              <div>{film.opening_crawl}</div>
+                          <div key={filmInfo.episode_id}>
+                              <div>{filmInfo.title}</div>
+                              <div>{filmInfo.opening_crawl}</div>
                               <div>
-                                  Directed by {film.director}, producer:{" "}
-                                  {film.producer}
+                                  Directed by {filmInfo.director}, producer:{" "}
+                                  {filmInfo.producer}
                               </div>
-                              <div>{film.release_date}</div>
+                              <div>{filmInfo.release_date}</div>
                               <Link to={`${direction}/characters`}>
                                   To characters
                               </Link>
@@ -45,20 +43,20 @@ const FilmDescription = ({ film }) => {
                               <Switch>
                                   <Route path={`${direction}/characters`}>
                                       <Characters
-                                          characters={film.characters}
+                                          characters={filmInfo.characters}
                                       />
                                   </Route>
                                   <Route path={`${direction}/planets`}>
-                                      <Planets planets={film.planets} />
+                                      <Planets planets={filmInfo.planets} />
                                   </Route>
                                   <Route path={`${direction}/species`}>
-                                      <Species species={film.species} />
+                                      <Species species={filmInfo.species} />
                                   </Route>
                                   <Route path={`${direction}/starships`}>
-                                      <Starships starships={film.starships} />
+                                      <Starships starships={filmInfo.starships} />
                                   </Route>
                                   <Route path={`${direction}/vehicles`}>
-                                      <Vehicles vehicles={film.vehicles} />
+                                      <Vehicles vehicles={filmInfo.vehicles} />
                                   </Route>
                               </Switch>
                           </div>
