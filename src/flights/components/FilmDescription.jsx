@@ -11,57 +11,101 @@ const FilmDescription = ({ film }) => {
 
     const { direction } = useParams();
 
-    console.log(direction);
+    let episodeNumber;
+    film.map((filmInfo) => {
+        if (filmInfo.episode_id == 1) {
+            episodeNumber = "I";
+        }
+        if (filmInfo.episode_id == 2) {
+            episodeNumber = "II";
+        }
+        if (filmInfo.episode_id == 3) {
+            episodeNumber = "III";
+        }
+        if (filmInfo.episode_id == 4) {
+            episodeNumber = "IV";
+        }
+        if (filmInfo.episode_id == 5) {
+            episodeNumber = "V";
+        }
+        if (filmInfo.episode_id == 6) {
+            episodeNumber = "VI";
+        }
+    });
 
     return (
         <>
             {film.map((filmInfo) => {
-                      return (
-                          <div key={filmInfo.episode_id}>
-                              <div>{filmInfo.title}</div>
-                              <div>{filmInfo.opening_crawl}</div>
-                              <div>
-                                  Directed by {filmInfo.director}, producer:{" "}
-                                  {filmInfo.producer}
-                              </div>
-                              <div>{filmInfo.release_date}</div>
-                              <Link to={`${direction}/characters`}>
-                                  To characters
-                              </Link>
-                              <Link to={`${direction}/planets`}>
-                                  To planets
-                              </Link>
-                              <Link to={`${direction}/species`}>
-                                  To species
-                              </Link>
-                              <Link to={`${direction}/starships`}>
-                                  To starships
-                              </Link>
-                              <Link to={`${direction}/vehicles`}>
-                                  To vehicles
-                              </Link>
-                              <Switch>
-                                  <Route path={`${direction}/characters`}>
-                                      <Characters
-                                          characters={filmInfo.characters}
-                                      />
-                                  </Route>
-                                  <Route path={`${direction}/planets`}>
-                                      <Planets planets={filmInfo.planets} />
-                                  </Route>
-                                  <Route path={`${direction}/species`}>
-                                      <Species species={filmInfo.species} />
-                                  </Route>
-                                  <Route path={`${direction}/starships`}>
-                                      <Starships starships={filmInfo.starships} />
-                                  </Route>
-                                  <Route path={`${direction}/vehicles`}>
-                                      <Vehicles vehicles={filmInfo.vehicles} />
-                                  </Route>
-                              </Switch>
-                          </div>
-                      );
-                  })}
+                return (
+                    <div className="film-description" key={filmInfo.episode_id}>
+                        <div className="film-description__title">
+                            {`Episode ${episodeNumber}: ${filmInfo.title}`.toLowerCase()}
+                        </div>
+                        <div className="film-description__description_container">
+                            <div className="film-description__description">
+                                {filmInfo.opening_crawl}
+                            </div>
+                        </div>
+                        <div className="film-description__creators">
+                            Directed by {filmInfo.director}, producers:{" "}
+                            {filmInfo.producer}
+                        </div>
+                        <div className="film-description__release">
+                            {(filmInfo.release_date).substr(0,4)}
+                        </div>
+                        <div className="film-description__buttons-container">
+                            <Link
+                                className="film-description__buttons-container_button"
+                                to={`${direction}/characters`}
+                            >
+                                characters
+                            </Link>
+                            <Link
+                                className="film-description__buttons-container_button"
+                                to={`${direction}/planets`}
+                            >
+                                planets
+                            </Link>
+                            <Link
+                                className="film-description__buttons-container_button"
+                                to={`${direction}/species`}
+                            >
+                                species
+                            </Link>
+                            <Link
+                                className="film-description__buttons-container_button"
+                                to={`${direction}/starships`}
+                            >
+                                starships
+                            </Link>
+                            <Link
+                                className="film-description__buttons-container_button"
+                                to={`${direction}/vehicles`}
+                            >
+                                vehicles
+                            </Link>
+                        </div>
+
+                        <Switch>
+                            <Route path={`${direction}/characters`}>
+                                <Characters characters={filmInfo.characters} />
+                            </Route>
+                            <Route path={`${direction}/planets`}>
+                                <Planets planets={filmInfo.planets} />
+                            </Route>
+                            <Route path={`${direction}/species`}>
+                                <Species species={filmInfo.species} />
+                            </Route>
+                            <Route path={`${direction}/starships`}>
+                                <Starships starships={filmInfo.starships} />
+                            </Route>
+                            <Route path={`${direction}/vehicles`}>
+                                <Vehicles vehicles={filmInfo.vehicles} />
+                            </Route>
+                        </Switch>
+                    </div>
+                );
+            })}
         </>
     );
 };
