@@ -28,10 +28,10 @@ function App() {
                         <Search setText={handleText} />
                     </div>
                     {/* <Switch> */}
-                        <Route exact path="/:episodeId">
-                            <FilmsBoard text={text} films={films} />
-                        </Route>
-                        <Redirect to="/home" />
+                    <Route path="/:episodeId">
+                        <FilmsBoard text={text} films={films} />
+                    </Route>
+                    <Redirect to="/home" />
                     {/* </Switch> */}
                 </>
             )}

@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, Switch, Route } from "react-router-dom";
+import {
+    useParams,
+    Link,
+    Switch,
+    Route,
+    useLocation,
+    Redirect,
+} from "react-router-dom";
 import Characters from "./Characters";
 import Planets from "./Planets";
 import Species from "./Species";
@@ -7,10 +14,8 @@ import Starships from "./Starships";
 import Vehicles from "./Vehicles";
 
 const FilmDescription = ({ film }) => {
-    console.log(film);
-
+    // const { location } = useLocation();
     const { episodeId } = useParams();
-    console.log(episodeId);
 
     let episodeNumber;
     film.map((filmInfo) => {
@@ -52,7 +57,7 @@ const FilmDescription = ({ film }) => {
                             {filmInfo.producer}
                         </div>
                         <div className="film-description__release">
-                            {(filmInfo.release_date).substr(0,4)}
+                            {filmInfo.release_date.substr(0, 4)}
                         </div>
                         <div className="film-description__buttons-container">
                             <Link

@@ -142,9 +142,12 @@ a {
 
 .characters-container {
     color: white;
-    width: 200px;
-    height: 20ppx;
-    background-color: blue;
+    width: 100%;
+    border-radius: 20px;
+}
+.characters {
+    border: 1px solid yellow;
+    border-radius: 20px;
 }
 
 .film-description {
