@@ -1,21 +1,9 @@
 import axios from "axios";
 
 const SWAPI = "https://swapi.dev/api/";
-// const regexpOnlyCharacters = /[^\d]/g;
 let allFilms = [];
-// let allCharacters = [];
-// let allStarships = [];
 let charactersCount = 0;
 let pagesLim = 0;
-
-// let starshipsCount = 0;
-
-// const test1 = "http://swapi.dev/api/people/14/".replace(
-//     regexpOnlyCharacters,
-//     ""
-// );
-
-// console.log("test1:= ", test1);
 
 const formatResultStringsToIds = (arr, allEntries) => {
     return arr.reduce((accum, url) => {
@@ -31,23 +19,8 @@ const formatResultStringsToIds = (arr, allEntries) => {
 async function getAllFilms() {
     const films = await (await axios.get(`${SWAPI}films/`)).data.results;
 
-    // console.log("films:= ", films);
     return films;
 }
-
-// async function getAllCharacters() {
-//     const characters = await (await axios.get(`${SWAPI}people/`)).data.results;
-
-//     // console.log("characters:= ", characters);
-//     return characters;
-// }
-
-// async function getAllStarships() {
-//     const starships = await (await axios.get(`${SWAPI}starships/`)).data
-//         .results;
-
-//     return starships;
-// }
 
 const fetchFimsPage = async (nextPageUrl) => {
     const urlStr = nextPageUrl
@@ -141,7 +114,6 @@ const createPaginationArr = (start, lim) => {
 export async function init() {
     allFilms = await getAllFilms();
 
-    // initial fetch to get total number of characters 82:
     const { count } = await fetchFimsPage();
     charactersCount = count;
     pagesLim = Math.ceil(count / 10);
@@ -150,10 +122,6 @@ export async function init() {
     const finalChar = [];
     ALL_CHARACTERS.map((index) => index.map((obj) => finalChar.push(obj)));
 
-    // const { count } = await fetchStarshipsPage();
-    // starshipsCount = count;
-    // pagesLim = Math.ceil(count / 10);
-    // const starshipsPages = createPaginationArr(1, pagesLim);
     const ALL_STARSHIPS = await fetchAllStarshipsData([1, 2, 3, 4]);
     const finalShips = [];
     ALL_STARSHIPS.map((index) => index.map((obj) => finalShips.push(obj)));
@@ -180,14 +148,6 @@ export async function init() {
         return film;
     });
 
-    // const newFilmsMap = allFilms.reduce((accum, film) => {
-    //     accum[film.title] = film;
-    //     return accum;
-    // }, []);
-
-    // console.log("allFilms:= ", allFilms);
-    // console.log("formattedFilmsMap:= ", newFilmsMap);
-    // return newFilmsMap;
     return allFilms;
 }
 

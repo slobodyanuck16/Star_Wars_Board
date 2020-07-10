@@ -8,7 +8,6 @@ function Search({ setText }) {
                 type="text"
                 className="search-flights__input"
                 placeholder="ENTER EPISODE NAME"
-                // value={event.target.value}
                 onChange={(event) => setText(event)}
             />
         </div>

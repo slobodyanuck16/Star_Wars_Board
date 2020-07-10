@@ -115,14 +115,6 @@ a {
     align-items: center;
     margin: auto;
     transition: all 0.4s ease;
-    // &:hover {
-    //     height: 15em;
-    //     width: 100%;
-    //     background-color: grey;
-    // }
-    // &:hover {
-    //     height: 200px;
-    // }
 }
 
 .film-card-poster {
@@ -236,6 +228,123 @@ a {
             font-family: "Star Jedi";
             text-transform: lowercase;
             font-size: 30px;
+            transition: all 0.4s ease;
+            &:hover {
+                height: 85px;
+                width: 235px;
+            }
         }
+    }
+}
+
+.planets-container {
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+}
+.planets {
+    display: inline-block;
+    border: 1px solid yellow;
+    border-radius: 20px;
+    width: 49%;
+    margin: 6px;
+    &__name {
+        border: 2px solid blue;
+        border-radius: 20px;
+        padding: 10px;
+        font-size: 20px;
+        font-family: "Star Jedi";
+        text-transform: lowercase;
+    }
+    &__name-container {
+        display: flex;
+        width: 50%;
+        height: 200px;
+        float: left;
+        justify-content: center;
+        align-items: center;
+    }
+    &__description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        width: 50%;
+        height: 200px;
+    }
+}
+.species-container {
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+}
+.species {
+    display: inline-block;
+    border: 1px solid yellow;
+    border-radius: 20px;
+    width: 49%;
+    margin: 6px;
+    &__name {
+        border: 2px solid blue;
+        border-radius: 20px;
+        padding: 10px;
+        font-size: 20px;
+        font-family: "Star Jedi";
+        text-transform: lowercase;
+    }
+    &__name-container {
+        display: flex;
+        width: 50%;
+        height: 265px;
+        float: left;
+        justify-content: center;
+        align-items: center;
+    }
+    &__description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        width: 50%;
+        height: 300px;
+    }
+}
+.starships-container {
+    color: white;
+    width: 100%;
+    border-radius: 20px;
+}
+.starships {
+    display: inline-block;
+    border: 1px solid yellow;
+    border-radius: 20px;
+    width: 49%;
+    margin: 6px;
+    &__name {
+        border: 2px solid blue;
+        border-radius: 20px;
+        padding: 10px;
+        font-size: 20px;
+        font-family: "Star Jedi";
+        text-transform: lowercase;
+    }
+    &__name-container {
+        display: flex;
+        width: 50%;
+        height: 285px;
+        float: left;
+        justify-content: center;
+        align-items: center;
+    }
+    &__description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        width: 50%;
+        height: 350px;
     }
 }

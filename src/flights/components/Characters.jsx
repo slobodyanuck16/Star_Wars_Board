@@ -1,15 +1,6 @@
 import React from "react";
-import axios from "axios";
 
 function Characters({ characters }) {
-    async function fetchData(link) {
-        const info = await (await axios.get(link)).data.results;
-        return info;
-    }
-
-    // console.log(fetchData("http://swapi.dev/api/films/1/"));
-
-    console.log(characters);
     return (
         <div className="characters-container">
             {characters

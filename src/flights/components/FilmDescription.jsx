@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
     useParams,
     Link,
     Switch,
     Route,
-    useLocation,
-    Redirect,
 } from "react-router-dom";
 import Characters from "./Characters";
 import Planets from "./Planets";
@@ -14,7 +12,6 @@ import Starships from "./Starships";
 import Vehicles from "./Vehicles";
 
 const FilmDescription = ({ film }) => {
-    // const { location } = useLocation();
     const { episodeId } = useParams();
 
     let episodeNumber;

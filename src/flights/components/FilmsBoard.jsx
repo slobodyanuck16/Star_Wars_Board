@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
-import { filmsObj } from "./another";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 import FilmDescription from "./FilmDescription";
 
 function FilmsBoard({ text, films }) {
     const { episodeId } = useParams();
-
-    const { location } = useLocation();
-
-    console.log(location);
-
-    console.log(episodeId);
-
-    console.log(films);
 
     const checkedFilm =
         episodeId === "home"
@@ -29,8 +20,6 @@ function FilmsBoard({ text, films }) {
                   film.title.toLowerCase().includes(text.toLowerCase())
               );
 
-    console.log(checkedFilm);
-
     return (
         <>
             <div className="films-list-container">
@@ -39,7 +28,7 @@ function FilmsBoard({ text, films }) {
                         <Link
                             key={film.episode_id}
                             className="film-card"
-                            to={`episode-${film.episode_id}`}
+                            to={`/episode-${film.episode_id}`}
                         >
                             <img
                                 className="film-card-poster"
