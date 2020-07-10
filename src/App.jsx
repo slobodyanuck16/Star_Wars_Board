@@ -1,9 +1,9 @@
 import React from "react";
-import Search from "./flights/components/Search";
-import FilmsBoard from "./flights/components/FilmsBoard";
+import Search from "./components/Search";
+import FilmsBoard from "./components/FilmsBoard";
 import { Route, Redirect, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { filmsObj } from "./flights/components/gateways";
+import { filmsObj } from "./components/gateways";
 
 function App() {
     const [films, setFilms] = useState();
