@@ -7,10 +7,10 @@ import FilmDescription from "./FilmDescription";
 function FilmsBoard({ text, films }) {
     const { episodeId } = useParams();
 
-    const {location} = useLocation();
+    const { location } = useLocation();
 
     console.log(location);
-    
+
     console.log(episodeId);
 
     console.log(films);
@@ -50,9 +50,13 @@ function FilmsBoard({ text, films }) {
                     );
                 })}
             </div>
+            {episodeId === "home" ? (
+                ""
+            ) : (
                 <div className="film-card-container">
                     <FilmDescription film={checkedFilm} />
                 </div>
+            )}
         </>
     );
 }

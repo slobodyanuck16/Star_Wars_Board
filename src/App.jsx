@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./flights/components/Search";
 import FilmsBoard from "./flights/components/FilmsBoard";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { filmsObj } from "./flights/components/another";
 
@@ -23,8 +23,11 @@ function App() {
             {films && (
                 <>
                     <div className="search-film-container">
-                        <i className="swg swg-darthvader"></i>
-                        <h1 className="title">Star Wars: The Complete Saga</h1>
+                        <Link to="/home">
+                            <h1 className="title">
+                                Star Wars: The Complete Saga
+                            </h1>
+                        </Link>
                         <Search setText={handleText} />
                     </div>
                     {/* <Switch> */}

@@ -7,6 +7,7 @@ body {
         Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     // background-image: url('../img/background.jpg');
     background-color: black;
+    transition: all 0.4s ease;
 }
 
 input {
@@ -49,6 +50,7 @@ a {
 .search-film-container {
     width: 80em;
     margin: auto;
+    transition: all 0.4s ease;
 }
 
 .films-list-container {
@@ -98,6 +100,7 @@ a {
     border-radius: 20px;
     margin-top: 50px;
     display: flex;
+    transition: all 0.4s ease;
 }
 
 .film-card {
@@ -111,20 +114,26 @@ a {
     justify-content: center;
     align-items: center;
     margin: auto;
+    transition: all 0.4s ease;
     // &:hover {
     //     height: 15em;
     //     width: 100%;
     //     background-color: grey;
     // }
-    &:hover {
-        height: 20em;
-    }
+    // &:hover {
+    //     height: 200px;
+    // }
 }
 
 .film-card-poster {
     border-radius: 10px;
     width: 12em;
     height: 19em;
+    transition: all 0.4s ease;
+    &:hover {
+        height: 20em;
+        width: 13em;
+    }
 }
 
 .film-card-container {
@@ -146,8 +155,36 @@ a {
     border-radius: 20px;
 }
 .characters {
+    display: inline-block;
     border: 1px solid yellow;
     border-radius: 20px;
+    width: 49%;
+    margin: 6px;
+    &__name {
+        border: 2px solid blue;
+        border-radius: 20px;
+        padding: 10px;
+        font-size: 20px;
+        font-family: "Star Jedi";
+        text-transform: lowercase;
+    }
+    &__name-container {
+        display: flex;
+        width: 50%;
+        height: 200px;
+        float: left;
+        justify-content: center;
+        align-items: center;
+    }
+    &__description-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        width: 50%;
+        height: 200px;
+    }
 }
 
 .film-description {
