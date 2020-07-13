@@ -14,27 +14,14 @@ import Vehicles from "./Vehicles";
 const FilmDescription = ({ film }) => {
     const { episodeId } = useParams();
 
-    let episodeNumber;
-    film.map((filmInfo) => {
-        if (filmInfo.episode_id == 1) {
-            episodeNumber = "I";
-        }
-        if (filmInfo.episode_id == 2) {
-            episodeNumber = "II";
-        }
-        if (filmInfo.episode_id == 3) {
-            episodeNumber = "III";
-        }
-        if (filmInfo.episode_id == 4) {
-            episodeNumber = "IV";
-        }
-        if (filmInfo.episode_id == 5) {
-            episodeNumber = "V";
-        }
-        if (filmInfo.episode_id == 6) {
-            episodeNumber = "VI";
-        }
-    });
+    const episNum = {
+        1: 'I',
+        2: 'II',
+        3: 'III',
+        4: 'IV',
+        5: 'V',
+        6: 'VI',
+    }
 
     return (
         <>
@@ -42,7 +29,7 @@ const FilmDescription = ({ film }) => {
                 return (
                     <div className="film-description" key={filmInfo.episode_id}>
                         <div className="film-description__title">
-                            {`Episode ${episodeNumber}: ${filmInfo.title}`.toLowerCase()}
+                            {`Episode ${episNum[`${filmInfo.episode_id}`]}: ${filmInfo.title}`}
                         </div>
                         <div className="film-description__description_container">
                             <div className="film-description__description">

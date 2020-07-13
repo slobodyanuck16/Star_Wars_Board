@@ -23,22 +23,9 @@ input {
 
 .title {
     margin: 0;
+    margin-top: 30px;
     margin-bottom: 30px;
-    text-align: center;
-    color: yellow;
-    font-size: 4em;
-    font-family: "Star Jedi";
-    src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot");
-    src: url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.eot?#iefix")
-            format("embedded-opentype"),
-        url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff2")
-            format("woff2"),
-        url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.woff")
-            format("woff"),
-        url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.ttf")
-            format("truetype"),
-        url("//db.onlinewebfonts.com/t/0c724f6aa457310440cf8949c615cbd7.svg#Star Jedi")
-            format("svg");
+    width: 80em;
 }
 
 a {
@@ -180,7 +167,10 @@ a {
 
 .film-description {
     &__title {
-        font-family: "Star Jedi";
+        // font-family: "Star Jedi";
+        font-family: 'Pathway Gothic One', sans-serif;
+        text-transform: uppercase;
+        font-weight: bold;
         color: yellow;
         font-size: 45px;
         margin-bottom: 20px;

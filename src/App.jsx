@@ -24,9 +24,11 @@ function App() {
                 <>
                     <div className="search-film-container">
                         <Link to="/home">
-                            <h1 className="title">
-                                Star Wars: The Complete Saga
-                            </h1>
+                            <img
+                                className="title"
+                                src="https://fontmeme.com/permalink/200713/f912c2247aa61f0a42f1ae5f0eb11cc1.png"
+                                alt="H1 Title"
+                            />
                         </Link>
                         <Search setText={handleText} />
                     </div>
