@@ -25,7 +25,7 @@ function FilmsBoard({ text, films }) {
         text === undefined
             ? films
             : films.filter((film) =>
-                  film.title.toLowerCase().includes(text.toLowerCase())
+                  film.title.toLowerCase().includes(text.toLowerCase()) || (film.episode_id + '').includes(text)
               );
 
     return (
